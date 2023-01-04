@@ -1,0 +1,55 @@
+.footer {
+    display: flex;
+    // position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    &__title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+    &__column {
+        .Footer_Links{
+            text-decoration: none;
+            margin: 0 30px;
+            color: #ccc;
+            font-size: 16px;
+            &:hover {
+                color: lightblue;
+              }
+              font-size: 20px;
+        }
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        width: 50%; // Set the width to 50% of the footer
+        margin-bottom: 20px;
+        &__link {
+            font-size: 14px;
+            color: #fff;
+            text-decoration: none;
+            margin-bottom: 10px;
+            &:hover {
+                color: #ccc;
+            }
+        }
+    }
+    &__date {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+    &__email {
+        font-size: 14px;
+        color: #fff;
+        text-decoration: none;
+        &:hover {
+            color: #ccc;
+        }
+    }
+}

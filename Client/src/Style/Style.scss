@@ -1,0 +1,48 @@
+$LightGreen: #b9e7e7;
+.app {
+    .Container {
+        //Login And Register 
+        .Authentication {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: #b9e7e7;
+            height: 100vh;
+            h1 {
+                font-size: 20px;
+                color: teal;
+                margin-bottom: 20px;
+            }
+            form {
+                display: flex;
+                flex-direction: column;
+                padding: 60px;
+                background-color: white;
+                width: 200px;
+                gap: 20px;
+                input {
+                    padding: 20;
+                    border: none;
+                    border-bottom: 1px solid gray;
+                }
+                button {
+                    padding: 10;
+                    background-color: teal;
+                    color: white;
+                    cursor: pointer;
+                    height: 35px;
+                }
+                span {
+                    font-size: 16px;
+                    text-align: center;
+                }
+                p {
+                    font: 12px;
+                    color: red;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}

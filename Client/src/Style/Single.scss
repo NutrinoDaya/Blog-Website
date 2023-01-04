@@ -1,0 +1,54 @@
+.Single{
+    padding: 10px;
+    margin: 10px;
+    display: flex;
+    gap: 20px;
+    width: 900px;
+    .Content{
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        img{
+            width: 70%;
+            height: 400px;
+            object-fit: cover;
+        }
+        .User{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+            // .Info{
+
+            // }
+            span{
+                font-weight: bold;
+            }
+        }
+        .edit{
+            display: flex;
+            gap: 5px;
+            img{
+                width: 30px;
+                height: 30px;
+                cursor: pointer;
+            }
+        }
+        h1{
+            font-size: 40px;
+            color: #333;
+        }
+        p{
+            text-align: justify;
+            line-height: 25px;
+        }
+    }
+
+}
