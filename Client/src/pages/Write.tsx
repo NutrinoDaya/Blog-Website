@@ -2,13 +2,58 @@ import React ,{useState} from 'react'
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import '../Style/Write.scss'
+import axios from 'axios';
 const Write = () => {
   const [value, setValue] = useState('');
-  console.log(value);
+  const [img,SetImg] = useState(null)
+  const [paper , SetPaper] = useState(null)
+  const [title,SetTitle] = useState("")
+  // console.log("img : ")
+  // console.log(img);
+  // console.log("paper : ")
+  // console.log(paper);
+  // console.log("title : ")
+  // console.log(title);
+  // console.log("value : ")
+  // console.log(value);
+  const uploadImg = async ()=>{
+    try {
+
+      const formData = new FormData()
+      formData.append("img",img)
+      const res = await axios.post("/upload1",formData)
+      console.log("Image : ")
+      console.log(res.data)
+
+    } catch (error) {
+        console.log(error);
+    }
+  }
+  const uploadPaper = async ()=>{
+    try {
+
+      const formData = new FormData()
+      formData.append("paper",paper)
+      const res = await axios.post("/upload2",formData)
+      console.log("paper : ")
+
+      console.log(res.data)
+
+    } catch (error) {
+        console.log(error);
+    }
+  }
+  const handlePublish = async e  =>{
+    e.preventDefault();
+    uploadImg();
+    uploadPaper()
+
+  }
+
   return (
     <div className="write">
       <div className="content">
-    <input type="text" placeholder='Title'></input>
+    <input type="text" placeholder='Title' onChange={e=>{SetTitle(e.target.value)}}></input>
     <div className="editorContainer">
     <ReactQuill className='editor' theme="snow" value={value} onChange={setValue} />;
     </div>
@@ -49,90 +94,29 @@ const Write = () => {
             type="file"
             id="file"
             name=""
-            // onChange={(e) => setFile(e.target.files[0])}
+            onChange={(e) => SetImg(e.target.files[0])}
           />
-          <label className="file" htmlFor="file">
+          <label className="file"  htmlFor="file" >
             Upload Image
           </label>
-
+          <input
+            style={{ display: "none" }}
+            type="file"
+            id="file"
+            name=""
+            onChange={(e) => SetPaper(e.target.files[0])}
+          />
           <label className="file" htmlFor="file">
             Upload Paper
           </label>
           <div className="buttons">
+
             {/* <button>Upload Image</button> */}
             {/* <button>Upload Paper</button> */}
-            {/* <button onClick={handleClick}>Publish</button> */}
+            <button onClick={handlePublish}>Publish</button>
           </div>
         </div>
-        {/* <div className="item">
-          <h1>Category</h1>
-          <div className="cat">
-            <input
-              type="radio"
-              // checked={cat === "art"}
-              name="cat"
-              value="art"
-              id="art"
-              // onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="art">Art</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              // checked={cat === "science"}
-              name="cat"
-              value="science"
-              id="science"
-              // onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="science">Science</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              // checked={cat === "technology"}
-              name="cat"
-              value="technology"
-              id="technology"
-              // onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="technology">Technology</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              // checked={cat === "cinema"}
-              name="cat"
-              value="cinema"
-              id="cinema"
-              // onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="cinema">Cinema</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              // checked={cat === "design"}
-              name="cat"
-              value="design"
-              id="design"
-              // onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="design">Design</label>
-          </div>
-          <div className="cat">
-            <input
-              type="radio"
-              // checked={cat === "food"}
-              name="cat"
-              value="food"
-              id="food"
-              // onChange={(e) => setCat(e.target.value)}
-            />
-            <label htmlFor="food">Food</label>
-          </div>
-        </div> */}
+
       </div>
     </div>
   )

@@ -17,9 +17,7 @@ export const AuthContextProvider = ( {children}) =>{
         await axios.post("/auth/logout")
         setCurrentUser(null);
         window.location.reload();
-
     };
-
     useEffect(()=>{
         localStorage.setItem("user",JSON.stringify(currUser))
     },[currUser])

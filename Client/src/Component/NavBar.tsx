@@ -29,6 +29,8 @@ const Navbar = () => {
         <span className='Logout' onClick={logout}>Logout</span> ) : (<Link className='link' to = "/Login"> Login</Link>
       )
       }
+      
+ 
         <Link to ="/About">About</Link>
       </div>
     </nav>
@@ -36,3 +38,25 @@ const Navbar = () => {
 };
 
 export default Navbar;
+// //
+//      {/* (<div
+//                             className={i18n.language === 'en' ? 'nav-buttons' : 'nav-buttons-ar'}
+//                         >
+
+//                              {currUser? (
+//                             <li>
+//                                 <Link className="signin" type="submit" onClick={handlelogout}>Logout</Link>
+//                             </li>
+//                             )
+//                             :(
+//                               <>
+//                             <li> 
+//                                 <Link className="signin" type="submit" onClick={() => onClick('displayBasic')}>{t('nav-Login')}</Link>
+//                             </li>
+//                             <li>
+//                                 <Link className="signup" type="submit" onClick={() => onClick('displayBasic2')}>{t('nav-register')}</Link>
+//                             </li>
+//                             </>
+//                            )}  
+//                         </div>
+//                             /}
